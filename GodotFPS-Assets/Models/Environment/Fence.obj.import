@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://d02brfp8ajj7i"
+path="res://.godot/imported/Fence.obj-d1d814f11ced72df20340fa66b0daff7.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Fence.obj-d1d814f11ced72df20340fa66b0daff7.mesh"]
+
+source_file="res://GodotFPS-Assets/Models/Environment/Fence.obj"
+dest_files=["res://.godot/imported/Fence.obj-d1d814f11ced72df20340fa66b0daff7.mesh", "res://.godot/imported/Fence.obj-d1d814f11ced72df20340fa66b0daff7.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
