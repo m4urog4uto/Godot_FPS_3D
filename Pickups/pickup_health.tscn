@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dqb305ge7ul1u"]
+
+[ext_resource type="PackedScene" uid="uid://1lnw1gsnvb6a" path="res://Pickups/pickup.tscn" id="1_a0mk3"]
+[ext_resource type="PackedScene" uid="uid://b8jut1scgafar" path="res://GodotFPS-Assets/Models/Pickups/HealthPackModel.dae" id="2_pqjie"]
+
+[node name="Pickup_Health" instance=ExtResource("1_a0mk3")]
+
+[node name="HealthPackModel" parent="Mesh" index="0" instance=ExtResource("2_pqjie")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0354583, 0, -0.0333689)

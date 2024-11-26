@@ -3,7 +3,7 @@ extends CharacterBody3D
 # Stats
 var health : int = 10
 var maxHealth : = 10
-var ammo : int = 15
+var ammo : int = 5
 var score : int = 15
 
 # Physics
@@ -51,7 +51,7 @@ func _process(_delta: float) -> void:
 		shooting()
 
 func shooting():
-	#if ammo != 0:
+	if ammo != 0:
 		var bulletInstanse = bulletScene.instantiate()
 		bulletInstanse.global_transform = bulletPivot.global_transform
 		bulletInstanse.scale = Vector3.ONE
@@ -79,3 +79,21 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
 	move_and_slide()
+
+func add_score(givePoints):
+	score += givePoints
+	
+func take_damage(damage):
+	health -= damage
+	
+	if health <= 0:
+		die()
+
+func die():
+	get_tree().reload_current_scene()
+	
+func add_health(extraHealth):
+	health = clamp(health + extraHealth, 0, maxHealth)
+
+func add_ammo(extraAmmo):
+	ammo += extraAmmo

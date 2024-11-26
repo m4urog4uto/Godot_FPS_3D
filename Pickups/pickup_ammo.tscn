@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://c2krdc2ebws1r"]
+
+[ext_resource type="PackedScene" uid="uid://1lnw1gsnvb6a" path="res://Pickups/pickup.tscn" id="1_vee7a"]
+[ext_resource type="PackedScene" uid="uid://nct7pxb1a0w2" path="res://GodotFPS-Assets/Models/Pickups/AmmoBoxModel.dae" id="2_ifg6l"]
+
+[node name="Pickup_Ammo" instance=ExtResource("1_vee7a")]
+object = 0
+give = 5
+
+[node name="AmmoBoxModel" parent="Mesh" index="0" instance=ExtResource("2_ifg6l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0472985, 0, -0.0272655)
