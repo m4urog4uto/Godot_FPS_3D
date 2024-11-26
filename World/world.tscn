@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c4pf8yvsl3lqk"]
+[gd_scene load_steps=16 format=3 uid="uid://c4pf8yvsl3lqk"]
 
 [ext_resource type="ArrayMesh" uid="uid://i4e4mcq1glul" path="res://GodotFPS-Assets/Models/Environment/Ground.obj" id="1_0seg4"]
 [ext_resource type="ArrayMesh" uid="uid://jqk3gdi64y3s" path="res://GodotFPS-Assets/Models/Environment/Tree_1.obj" id="2_dwnir"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b1bkkq7asy2al" path="res://Player/player.tscn" id="4_d7a55"]
 [ext_resource type="PackedScene" uid="uid://bjsipi7ok1onc" path="res://Enemy/enemy.tscn" id="5_pw2fu"]
 [ext_resource type="PackedScene" uid="uid://c2krdc2ebws1r" path="res://Pickups/pickup_ammo.tscn" id="7_6yh71"]
+[ext_resource type="PackedScene" uid="uid://cte3rbb5cn3b" path="res://UI/ui.tscn" id="8_cjjii"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_socar"]
 data = PackedVector3Array(0, 0, 0, 3, 0.3, 0, 3, 0, 0, 3, 0.3, 0, 0, 0, 0, 0, 0.3, 0, 0, 0.3, -3, 3, 0.3, 0, 0, 0.3, 0, 3, 0.3, 0, 0, 0.3, -3, 3, 0.3, -3, 3, 0, -3, 3, 0.3, 0, 3, 0.3, -3, 3, 0.3, 0, 3, 0, -3, 3, 0, 0, 3, 0, -3, 0, 0, 0, 3, 0, 0, 0, 0, 0, 3, 0, -3, 0, 0, -3, 0, 0.3, -3, 0, 0, 0, 0, 0, -3, 0, 0, 0, 0, 0.3, -3, 0, 0.3, 0, 3, 0, -3, 0, 0.3, -3, 0, 0, -3, 0, 0.3, -3, 3, 0, -3, 3, 0.3, -3)
@@ -112,6 +113,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.3325, 0, -5.42753)
 [node name="Enemy4" parent="Enemys" instance=ExtResource("5_pw2fu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.8404, 0, -15.2315)
 
+[node name="Pickups" type="Node" parent="."]
+
+[node name="Pickup_Ammo" parent="Pickups" instance=ExtResource("7_6yh71")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5923, 0.412509, -26.6747)
+
+[node name="Pickup_Ammo2" parent="Pickups" instance=ExtResource("7_6yh71")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.8551, 0.412509, -4.53863)
+
+[node name="Pickup_Ammo3" parent="Pickups" instance=ExtResource("7_6yh71")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.7932, 0.412509, -16.0681)
+
+[node name="Pickup_Health" parent="Pickups" instance=ExtResource("4_bmqf6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.347, 0.915204, -27.6865)
+
+[node name="UI" parent="." instance=ExtResource("8_cjjii")]
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_vkxlx")
 
@@ -122,9 +139,3 @@ shadow_enabled = true
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("4_d7a55")]
 transform = Transform3D(-0.726574, 0, 0.687087, 0, 1, 0, -0.687087, 0, -0.726574, 0, 0, 0)
-
-[node name="Pickup_Ammo" parent="." instance=ExtResource("7_6yh71")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.3015, 0.412509, -2.07554)
-
-[node name="Pickup_Health" parent="." instance=ExtResource("4_bmqf6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.7005, 0.915204, -6.50457)

@@ -1,0 +1,64 @@
+[gd_scene load_steps=5 format=3 uid="uid://cte3rbb5cn3b"]
+
+[ext_resource type="Script" path="res://UI/ui.gd" id="1_8bra7"]
+[ext_resource type="Texture2D" uid="uid://k4l0ufaxtclb" path="res://GodotFPS-Assets/UI/UI_Square.png" id="1_ehbup"]
+[ext_resource type="FontFile" uid="uid://d3gdw6no840oo" path="res://GodotFPS-Assets/Font/Ubuntu-Regular.ttf" id="2_fspe5"]
+
+[sub_resource type="FontVariation" id="FontVariation_8l1rx"]
+base_font = ExtResource("2_fspe5")
+
+[node name="UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8bra7")
+
+[node name="HealthBar" type="TextureProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 31.0
+offset_top = -105.0
+offset_right = 317.0
+offset_bottom = -65.0
+grow_vertical = 0
+value = 40.0
+nine_patch_stretch = true
+texture_under = ExtResource("1_ehbup")
+texture_progress = ExtResource("1_ehbup")
+tint_under = Color(0.347824, 0.0650009, 0, 1)
+tint_progress = Color(1, 0.239944, 0.231224, 1)
+
+[node name="Ammo_txt" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.108
+anchor_top = 2.527
+anchor_right = -0.108
+anchor_bottom = 2.527
+offset_left = 155.416
+offset_top = -1138.5
+offset_right = 247.416
+offset_bottom = -1109.5
+theme_override_fonts/font = SubResource("FontVariation_8l1rx")
+theme_override_font_sizes/font_size = 25
+text = "AMMO: "
+
+[node name="Score_txt" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.108
+anchor_top = 2.527
+anchor_right = -0.108
+anchor_bottom = 2.527
+offset_left = 154.416
+offset_top = -1181.5
+offset_right = 246.416
+offset_bottom = -1152.5
+theme_override_fonts/font = SubResource("FontVariation_8l1rx")
+theme_override_font_sizes/font_size = 25
+text = "Score: "

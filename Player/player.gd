@@ -25,8 +25,14 @@ var mouseDelta : Vector2 = Vector2()
 # Preload lo que hace es precargar la escena en memoria de la bala cuando el jugador tambien se cargue
 @onready var bulletScene = preload("res://Bullet/bullet.tscn")
 
+@onready var UI : Node = $"../UI"
+
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	
+	UI.updateHealthBar(health, maxHealth)
+	UI.updateAmmo(ammo)
+	UI.updateScore(score)
 
 # mover con el mouse
 func _input(event: InputEvent) -> void:
@@ -48,15 +54,16 @@ func _process(_delta: float) -> void:
 	cam.rotation_degrees -= Vector3()
 	
 	if Input.is_action_just_pressed("shoot"):
-		shooting()
+		if ammo != 0:
+			shooting()
 
 func shooting():
-	if ammo != 0:
-		var bulletInstanse = bulletScene.instantiate()
-		bulletInstanse.global_transform = bulletPivot.global_transform
-		bulletInstanse.scale = Vector3.ONE
-		get_tree().current_scene.add_child(bulletInstanse)
-		ammo -= 1
+	var bulletInstanse = bulletScene.instantiate()
+	bulletInstanse.global_transform = bulletPivot.global_transform
+	bulletInstanse.scale = Vector3.ONE
+	get_tree().current_scene.add_child(bulletInstanse)
+	ammo -= 1
+	UI.updateAmmo(ammo)
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -82,10 +89,11 @@ func _physics_process(delta: float) -> void:
 
 func add_score(givePoints):
 	score += givePoints
+	UI.updateScore(score)
 	
 func take_damage(damage):
 	health -= damage
-	
+	UI.updateHealthBar(health, maxHealth)
 	if health <= 0:
 		die()
 
@@ -94,6 +102,8 @@ func die():
 	
 func add_health(extraHealth):
 	health = clamp(health + extraHealth, 0, maxHealth)
+	UI.updateHealthBar(health, maxHealth)
 
 func add_ammo(extraAmmo):
 	ammo += extraAmmo
+	UI.updateAmmo(ammo)
